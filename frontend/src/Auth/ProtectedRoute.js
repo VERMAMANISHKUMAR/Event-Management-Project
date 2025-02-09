@@ -67,9 +67,9 @@ const ProtectedRoute = ({ children }) => {
       }
 
       try {
-        const backendURL = process.env.REACT_APP_BACKEND_URL || "https://event-management-project-backend.onrender.com";
+        const backendURL = process.env.Backend_URL || "https://event-management-project-backend.onrender.com";
 
-        const response = await axios.get(`${backendURL}/api/auth/verify`, {
+        const response = await axios.get(`${Backend_URL}/api/auth/verify`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
