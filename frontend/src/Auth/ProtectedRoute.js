@@ -90,7 +90,7 @@ const ProtectedRoute = ({ children }) => {
   }, []);
 
   if (isAuthenticated === null) {
-    return <p>Loading...</p>;
+    return <p style={{textAlign:'center'}}>Loading...</p>;
   }
 
   return isAuthenticated ? children : <Navigate to="/signin" />;
