@@ -59,32 +59,55 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const checkTokenValidity = async () => {
-      const token = localStorage.getItem('authToken');
+      let token = localStorage.getItem('authToken');
 
       if (!token) {
-        console.error('No token found in localStorage');
+        console.error('🔴 No token found in localStorage.');
+        setIsAuthenticated(false);
+        return;
+      }
+
+      token = token.trim(); // Ensure no hidden spaces
+
+      // ✅ Decode token to check expiration BEFORE making API request
+      const decodeToken = (token) => {
+        try {
+          const base64Url = token.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          return JSON.parse(atob(base64));
+        } catch (error) {
+          console.error('🔴 Failed to decode token:', error);
+          return null;
+        }
+      };
+
+      const decoded = decodeToken(token);
+      if (!decoded || decoded.exp * 1000 < Date.now()) {
+        console.warn('⚠️ Token expired, logging out...');
+        localStorage.removeItem('authToken');
         setIsAuthenticated(false);
         return;
       }
 
       try {
-        console.log('Verifying token...');
+        console.log('🔵 Verifying token...');
 
         const response = await axios.get('https://event-management-project-backend.onrender.com/api/auth/verify', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
 
         if (response.status === 200) {
-          console.log('Token verification successful:', response.data);
+          console.log('✅ Token verification successful:', response.data);
           setIsAuthenticated(true);
         } else {
-          console.error('Token verification failed:', response.status, response.data);
+          console.error('🔴 Token verification failed:', response.status, response.data);
           setIsAuthenticated(false);
         }
       } catch (error) {
-        console.error('Token verification error:', error.response ? error.response.data : error.message);
+        console.error(
+          '🔴 Token verification error:',
+          error.response ? error.response.data : error.message
+        );
         setIsAuthenticated(false);
       }
     };
@@ -93,11 +116,10 @@ const ProtectedRoute = ({ children }) => {
   }, []);
 
   if (isAuthenticated === null) {
-    return <p>Loading...</p>; // Show a loading state while checking authentication
+    return <p>🔄 Loading...</p>; // Show a loading state while checking authentication
   }
 
   return isAuthenticated ? children : <Navigate to="/signin" />;
 };
 
 export default ProtectedRoute;
-
