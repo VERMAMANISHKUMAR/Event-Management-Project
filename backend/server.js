@@ -1,6 +1,5 @@
 const express = require('express');
  const dotenv = require('dotenv');
-
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Import cors
 const connectMongoDB = require('./Config/connectMongoDB');
@@ -13,7 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 3800;
 
 // Middleware
-app.use(cors()); // Enable CORS for all routes
+app.use(cors({
+    origin: "https://event-management-project-frontend.onrender.com", //Update with your frontend URL
+    credentials: true,
+  }));
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
