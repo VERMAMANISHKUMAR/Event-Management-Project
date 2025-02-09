@@ -11,7 +11,7 @@ const EventForm = () => {
     time: "",
     imageUrl: "",
   });
-  const API_URL = process.env.Create_Event || "http://localhost:3800/api/events";
+  const API_URL = process.env.Create_Event || "https://event-management-project-backend.onrender.com//api/events";
   //mongodb+srv://manishkumarverma091:manish12345@cluster0.s7mmn.mongodb.net/authtentication
   console.log(API_URL);
   const handleChange = (e) => {
