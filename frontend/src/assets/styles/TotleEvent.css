@@ -1,0 +1,215 @@
+/* Base Styles */
+.event-page-container {
+          width: 90%;
+          max-width: 1200px;
+          margin: auto;
+          padding: 20px;
+          font-family: Arial, sans-serif;
+      }
+      
+      h1 {
+          text-align: center;
+          color: #333;
+      }
+      
+      /* Table Styles */
+      .event-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          overflow-x: auto;
+      }
+      
+      .event-table th,
+      .event-table td {
+          padding: 12px;
+          border: 1px solid #ddd;
+          text-align: left;
+      }
+      
+      .event-table th {
+          background-color: #007BFF;
+          color: white;
+      }
+      
+      .event-table td {
+          background-color: #f9f9f9;
+      }
+      
+      /* Buttons */
+      .edit-btn, .delete-btn {
+          padding: 6px 12px;
+          margin-right: 5px;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 14px;
+      }
+      
+      .edit-btn {
+          background-color: #ffc107;
+          color: black;
+      }
+      
+      .delete-btn {
+          background-color: #dc3545;
+          color: white;
+      }
+      
+      .edit-btn:hover {
+          background-color: #e0a800;
+      }
+      
+      .delete-btn:hover {
+          background-color: #c82333;
+      }
+      
+      /* Modal Overlay */
+      .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+      }
+      
+      .modal-content {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          width: 90%;
+          max-width: 400px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      
+      .modal-content h2 {
+          margin-bottom: 15px;
+      }
+      
+      .modal-content label {
+          display: block;
+          font-weight: bold;
+          margin: 10px 0 5px;
+      }
+      
+      .modal-content input, 
+      .modal-content textarea {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+      
+      .modal-buttons {
+          display: flex;
+          justify-content: space-between;
+      }
+      
+      .save-btn {
+          background-color: #28a745;
+          color: white;
+          padding: 8px 12px;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          margin-left: 10rem;
+      }
+      
+      .close-btn {
+          background-color: #6c757d;
+          color: white;
+          padding: 8px 12px;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+      }
+      
+      .save-btn:hover {
+          background-color: #218838;
+      }
+      
+      .close-btn:hover {
+          background-color: #5a6268;
+      }
+      .pagination {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 20px;
+      }
+      
+      .pagination button {
+          background-color: #007BFF;
+          color: white;
+          border: none;
+          padding: 8px 12px;
+          margin: 0 5px;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 14px;
+      }
+      
+      .pagination button:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+      }
+      
+      .pagination span {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 10px;
+      }
+      
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+          .event-page-container {
+              width: 95%;
+              padding: 15px;
+          }
+      
+          .event-table th, 
+          .event-table td {
+              font-size: 14px;
+              padding: 8px;
+          }
+      
+          .edit-btn, .delete-btn {
+              padding: 5px 10px;
+              font-size: 12px;
+          }
+      
+          .modal-content {
+              width: 95%;
+          }
+      }
+      
+      @media screen and (max-width: 480px) {
+          .event-table {
+              display: block;
+              overflow-x: auto;
+              white-space: nowrap;
+          }
+      
+          .event-table th, 
+          .event-table td {
+              font-size: 12px;
+              padding: 6px;
+          }
+      
+          .edit-btn, .delete-btn {
+              font-size: 10px;
+              padding: 4px 8px;
+          }
+      
+          .modal-content {
+              width: 100%;
+              padding: 15px;
+          }
+      }
+      

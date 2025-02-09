@@ -1,0 +1,201 @@
+/* General Reset */
+* {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, sans-serif;
+      
+      }
+      
+      /* Admin Container */
+      .admin-container {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh; /* Use min-height for flexible content */
+       
+      }
+      
+      /* Navbar */
+      .navbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #498BEE;
+          color: rgb(101, 231, 54);
+          padding: 10px 20px;
+          position: relative;
+      }
+    
+      .Logout-button{
+        border: none;
+        background-color:red;
+        color:white;
+        border-radius: 25px;
+        padding: 5px;
+        font-weight: bold;
+        
+      }
+      /* Login Button & Menu Icon */
+      .navbar .menu-btn,
+      .navbar .login-btn {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 18px;
+          cursor: pointer;
+          padding: 5px 10px;
+      }
+      
+      /* Align Items on Right */
+      .navbar .menu-login-container {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+      
+      /* Sidebar */
+      .sidebar {
+          width: 250px;
+          background:#498BEE;
+          color: rgb(18, 221, 49);
+          height: 100vh;
+          position: fixed;
+          left: -250px; /* Hidden by default on smaller screens */
+          top: 0; /* Align to top */
+          transition: 0.3s;
+          padding-top: 60px;
+          z-index: 1000; /* Ensure it's above other content */
+          overflow-y: auto; /* Add scroll if content overflows */
+      }
+      
+      .sidebar.open {
+          left: 0;
+      }
+      
+      .sidebar ul {
+          list-style: none;
+          padding: 0;
+      }
+      
+      .sidebar ul li {
+          padding: 15px 20px;
+      }
+      
+      .sidebar ul li a {
+          text-decoration: none;
+          color: white;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+      
+      /* Sidebar Close Button */
+      .close-button {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 20px;
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          cursor: pointer;
+      }
+      .close-button:hover{
+        background-color: red;
+      }
+      
+      /* Main Content */
+      .main-content {
+          padding: 20px;
+          margin-left: 250px; /* Adjust margin for sidebar */
+          flex-grow: 1; /* Allow main content to expand */
+      }
+      
+   
+      
+      
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) { /* Example breakpoint - adjust as needed */
+          .sidebar {
+              left: -250px; /* Hide sidebar on smaller screens */
+          }
+      
+          .main-content {
+              margin-left: 0; /* Remove sidebar margin */
+          }
+      
+          .navbar .menu-btn {
+              display: block; /* Show menu button */
+          }
+      
+          .navbar .menu-login-container {
+              display: none; /* Hide login button initially */
+          }
+      
+          .navbar .menu-login-container.open {
+              display: flex;
+              flex-direction: column; /* Stack login/menu vertically */
+              position: absolute;
+              top: 60px; /* Adjust as needed */
+              left: 0;
+              width: 100%;
+              background-color:#498BEE;
+              text-align: center; /* Center the items */
+          }
+      
+          .navbar .menu-login-container.open .login-btn,
+          .navbar .menu-login-container.open .menu-btn {
+              margin: 10px 0; /* Add some spacing */
+              display: block; /* Ensure buttons are displayed */
+          }
+      
+          .login-modal {
+              padding: 20px; /* Add padding to modal */
+          }
+          .login-box {
+              width: 90%; /* Make login box responsive */
+              max-width: 400px; /* Set a maximum width */
+          }
+      
+          .footer {
+              position: relative; /* Make footer static on smaller screens */
+          }
+      }
+      
+      
+      /* Login Modal (Improved) */
+      .login-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1001; /* Ensure it's on top */
+      }
+      
+      .login-box {
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+          width: 90%; /* Make login box responsive */
+          max-width: 400px; /* Set a maximum width */
+      }
+      
+      .login-box input {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+      }
+      
+      .login-box button {
+          padding: 10px 15px;
+          background: #498BEE;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }

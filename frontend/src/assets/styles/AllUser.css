@@ -1,0 +1,92 @@
+/* General Styles */
+.container {
+          max-width: 1200px;
+          margin: auto;
+        }
+        
+        h4 {
+          margin-bottom: 15px;
+          font-weight: bold;
+          color: #007BFF;
+        }
+        
+        /* Dashboard Summary Cards */
+        .card {
+          border: none;
+          border-radius: 10px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+          transform: scale(1.05);
+        }
+        
+        .card h5 {
+          color: #555;
+          font-size: 1.5rem;
+        }
+        
+        .card h2 {
+          font-size: 2rem;
+          font-weight: bold;
+          color: #007bff;
+        }
+        
+        /* Users Table */
+        .table {
+          background: white;
+          border-radius: 10px;
+          overflow: hidden;
+          text-align: center;
+        }
+        
+        .table th {
+          text-align: center;
+          color: #007BFF;
+        }
+        
+        .table tbody tr {
+          transition: background 0.3s ease-in-out;
+        }
+        
+        .table tbody tr:hover {
+          background: rgba(0, 123, 255, 0.1);
+        }
+        
+        /* Remove Button */
+        .remove-button{
+          background:#007BFF;
+          border: none;
+          transition: background 0.3s ease-in-out;
+        }
+        
+        .btn-danger:hover {
+          background:red;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+          .row {
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .col-md-3 {
+            width: 100%;
+            margin-bottom: 15px;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .table th,
+          .table td {
+            font-size: 14px;
+          }
+        
+          .btn {
+            font-size: 12px;
+            padding: 5px 10px;
+          }
+        }
+        
