@@ -13,7 +13,7 @@ const SignupForm = () => {
     e.preventDefault();
 
     try {
-       const response = await axios.post(`${process.env.Backend_URL}api/auth/signup`,{ email, password });
+       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/auth/signup`,{ email, password });
 
       if (response.status === 201) {
         toast.success('User created successfully', { autoClose: 3000 });
